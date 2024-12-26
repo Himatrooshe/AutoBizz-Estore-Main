@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate", // Auto-update the Service Worker
+      registerType: "autoUpdate",
       manifest: {
         name: "My Vite App",
         short_name: "ViteApp",
