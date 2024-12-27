@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function PrivacyAndPolicy() {
   return (
-    <div className="bg-[#011223] text-[#DEEEFC] min-h-screen py-20 px-6 md:px-[55px] font-['Plus_Jakarta_Sans']">
+    <div className="bg-[#011223] text-[#DEEEFC] min-h-screen py-20 px-6 md:px-[55px] font-['Plus_Jakarta_Sans'] text-justify">
       <motion.section
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ function PrivacyAndPolicy() {
         <p className="text-center pb-4">   Effective: January 2025</p>
         <div className="bg-[#DEEEFC] p-[0.5px]"></div>
         <p
-          className="text-lg leading-10 my-5 font-Jakarta tracking-wide"
+          className="text-lg leading-10 my-5 font-Jakarta tracking-wide text-justify"
           style={{ wordSpacing: "3px" }}
         >
           At AutoBizz, we are committed to safeguarding your privacy and

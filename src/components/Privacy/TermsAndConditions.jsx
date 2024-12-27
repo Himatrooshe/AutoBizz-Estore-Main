@@ -27,7 +27,7 @@ function TermsAndConditions() {
         <div className="bg-[#DEEEFC] p-[0.5px]"></div>
 
         <p
-          className="text-lg leading-10 my-5 font-Jakarta tracking-wide"
+          className="text-lg leading-10 my-5 font-Jakarta tracking-wide text-justify"
           style={{ wordSpacing: "3px" }}
         >
           These terms and conditions outline the rules and regulations for the
@@ -43,7 +43,7 @@ function TermsAndConditions() {
           .
         </p>
         <p
-          className="text-lg leading-10 my-5 font-Jakarta tracking-wide"
+          className="text-lg leading-10 my-5 font-Jakarta tracking-wide text-justify"
           style={{ wordSpacing: "3px" }}
         >
           By accessing this website, we assume you accept these terms and
@@ -55,7 +55,7 @@ function TermsAndConditions() {
           Terminology
         </h3>
         <p
-          className="text-lg leading-10 my-5 font-Jakarta tracking-wide"
+          className="text-lg leading-10 my-5 font-Jakarta tracking-wide text-justify"
           style={{ wordSpacing: "3px" }}
         >
           In these Terms and Conditions, the following definitions apply:
@@ -81,7 +81,7 @@ function TermsAndConditions() {
           Cookies
         </h3>
         <p
-          className="text-lg leading-10 my-5 font-Jakarta tracking-wide"
+          className="text-lg leading-10 my-5 font-Jakarta tracking-wide text-justify"
           style={{ wordSpacing: "3px" }}
         >
           AutoBizz employs the use of cookies. By accessing AutoBizz, you agree
@@ -94,7 +94,7 @@ function TermsAndConditions() {
           License
         </h3>
         <p
-          className="text-lg leading-10 my-5 font-Jakarta tracking-wide"
+          className="text-lg leading-10 my-5 font-Jakarta tracking-wide text-justify"
           style={{ wordSpacing: "3px" }}
         >
           Unless otherwise stated, AutoBizz and/or its licensors own the
@@ -162,7 +162,7 @@ function TermsAndConditions() {
           Intellectual Property
         </h3>
         <p
-          className="text-lg leading-10 my-5 font-Jakarta tracking-wide"
+          className="text-lg leading-10 my-5 font-Jakarta tracking-wide text-justify"
           style={{ wordSpacing: "3px" }}
         >
           All content on this website, including but not limited to the logo,
@@ -175,7 +175,7 @@ function TermsAndConditions() {
           User Comments
         </h3>
         <p
-          className="text-lg leading-10 my-5 font-Jakarta tracking-wide"
+          className="text-lg leading-10 my-5 font-Jakarta tracking-wide text-justify"
           style={{ wordSpacing: "3px" }}
         >
           AutoBizz allows users to post comments in specific sections of the
@@ -211,7 +211,7 @@ function TermsAndConditions() {
           Hyperlinking to Our Content
         </h3>
         <p
-          className="text-lg leading-10 my-5 font-Jakarta tracking-wide"
+          className="text-lg leading-10 my-5 font-Jakarta tracking-wide text-justify"
           style={{ wordSpacing: "3px" }}
         >
           Certain organizations, such as government agencies, search engines,

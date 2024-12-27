@@ -7,6 +7,7 @@ import ProductDataSync from "../ProductCart/ProductDataSync";
 import InventoryDataSync from "../ProductCart/InventoryDataSync";
 import EnterpriseCustomSolution from "../ProductCart/EnterpriseCustomSolution";
 import Faqs from "../FAQ/Faqs";
+import ProductReviews from "../Reviews/products-review/ProductReviews";
 
 const ProductDataSyncDetails = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -426,16 +427,7 @@ const ProductDataSyncDetails = () => {
                   </ol>
                 </div>
               )}
-              {activeTab === "review" && (
-                <div>
-                  <h3 className="text-gray-800 font-bold text-xl mb-2">
-                    Customer Reviews
-                  </h3>
-                  <p className="text-gray-600">
-                    Customers' reviews and feedback about this product.
-                  </p>
-                </div>
-              )}
+              {activeTab === "review" && <ProductReviews />}
             </div>
           </div>
           <div className="lg:w-[850px] mt-6">
