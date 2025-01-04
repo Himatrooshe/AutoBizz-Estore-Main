@@ -1,27 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
-import autobizzLogo from "../../assets/autobizz_logo_1.png";
-import { Link } from "react-router-dom";
+import autobizzLogo from "../../assets/Logo for Light BG.svg";
+import specialLogo from "../../assets/Logo for Dark BG.svg"; // Add special logo
+import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../Checkout/CartContext";
 
 const Header = () => {
-  const { cart } = useCart(); 
+  const { cart } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCounter, setShowCounter] = useState(false);
+
+  const location = useLocation();
+
+  // Define routes requiring special menu name color and logo
+  const specialRoutes = ["/about-us", "/privacy-and-policy", "/terms-and-conditions"];
+  const isSpecialPage = specialRoutes.includes(location.pathname);
 
   useEffect(() => {
     setShowCounter(cart.length > 0);
   }, [cart]);
 
   return (
-    <header className="fixed w-full bg-[#ECF6FF20] backdrop-blur-sm z-10 lg:px-[55px] px-[55px]">
+    <header
+      className="fixed w-full bg-[#ECF6FF20] backdrop-blur-sm z-10 lg:px-[55px] px-[55px]"
+    >
       <div className="container mx-auto py-2 flex justify-between items-center">
         <div className="text-2xl font-bold flex items-center">
           <Link to="/">
             <img
-              src={autobizzLogo}
-              alt="AutoBizz Logo"
+              src={isSpecialPage ? specialLogo : autobizzLogo}
+              alt="Logo"
               className="w-30 h-8 md:h-10 lg:h-12"
             />
           </Link>
@@ -39,7 +48,9 @@ const Header = () => {
                     ? "/about-us"
                     : `#${item.toLowerCase().replace(" ", "-")}`
                 }
-                className="text-black hover:text-blue-500"
+                className={`${
+                  isSpecialPage ? "text-white hover:text-gray-300" : "text-black hover:text-blue-500"
+                }`}
               >
                 {item}
               </Link>
@@ -49,7 +60,9 @@ const Header = () => {
 
         <div className="hidden lg-md:flex items-center space-x-4">
           <Link to="/checkout">
-            <button className="flex items-center space-x-1 text-[#1c5a7a] font-medium px-4 py-2 hover:text-blue-500 rounded-lg border border-[#1c5a7a] bg-[#fcfeff]">
+            <button
+              className={`flex items-center space-x-1 text-[#1c5a7a] border-[#1c5a7a] font-medium px-4 py-2 hover:text-blue-500 rounded-lg border bg-[#fcfeff]`}
+            >
               <span>Cart</span>
               <FiShoppingCart size={15} />
               {showCounter && (
@@ -59,7 +72,9 @@ const Header = () => {
               )}
             </button>
           </Link>
-          <button className="flex items-center bg-[#1c5a7a] text-[#E1F0F8] px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+          <button
+            className="flex items-center bg-[#1c5a7a] text-[#E1F0F8] px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+          >
             Free Consultation
           </button>
         </div>
@@ -86,15 +101,11 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <nav className="lg-md:hidden bg-[#ECF6FF20] backdrop-blur-sm mt-2">
+        <nav
+          className="lg-md:hidden bg-[#ECF6FF20] backdrop-blur-sm mt-2"
+        >
           <ul className="space-y-4 pl-6 font-medium">
-            {[
-              "Home",
-              "Our Services",
-              "Portfolio",
-              "Case Study",
-              "About Us",
-            ].map((item, index) => (
+            {[ "Home", "Our Services", "Portfolio", "Case Study", "About Us" ].map((item, index) => (
               <li key={index}>
                 <Link
                   to={
@@ -104,7 +115,9 @@ const Header = () => {
                       ? "/about-us"
                       : `#${item.toLowerCase().replace(" ", "-")}`
                   }
-                  className="block text-[#1C5A7A] hover:text-blue-500"
+                  className={`block ${
+                    isSpecialPage ? "text-white hover:text-gray-300" : "text-[#1C5A7A] hover:text-blue-500"
+                  }`}
                 >
                   {item}
                 </Link>
@@ -112,7 +125,9 @@ const Header = () => {
             ))}
           </ul>
           <div className="mt-4 pl-6">
-            <button className="flex items-center justify-center bg-[#1c5a7a] hover:bg-blue-600 text-white px-6 py-3 rounded-md transition">
+            <button
+              className="flex items-center justify-center bg-[#1c5a7a] hover:bg-blue-600 text-white px-6 py-3 rounded-md transition"
+            >
               Free Consultation
             </button>
           </div>

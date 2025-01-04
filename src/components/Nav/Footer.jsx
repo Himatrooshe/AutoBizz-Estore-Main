@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import autobizzLogo from "../../assets/autobizz_new_logo.svg";
-import FooterIcons from "./FooterIcons"; 
+import { Link } from "react-router-dom";
+import autobizzLogo from "../../assets/Logo for Dark BG.svg";
+import FooterIcons from "./FooterIcons";
 
 const Footer = () => {
   // Scroll to top function
@@ -14,7 +14,11 @@ const Footer = () => {
       <div className="flex flex-col lg:flex-row lg:justify-between font-Jakarta items-center sm:items-start">
         {/* Left Section */}
         <div className="mb-8 lg:mb-0 mr-4 text-center sm:text-left">
-          <img src={autobizzLogo} alt="AutoBizz Logo" className="w-80 mb-4 mx-auto sm:mx-0" />
+          <img
+            src={autobizzLogo}
+            alt="AutoBizz Logo"
+            className="w-80 mb-4 mx-auto sm:mx-0"
+          />
           <h2 className="text-[46px] font-semibold mb-4 lg:text-4xl">
             We would love to hear from you
           </h2>
@@ -56,13 +60,15 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li className="hover:text-blue-400 cursor-pointer">Our work</li>
               <li className="hover:text-blue-400 cursor-pointer">Services</li>
-              <li className="hover:text-blue-400 cursor-pointer">About Us</li>
+              <li className="hover:text-blue-400 cursor-pointer">
+                <Link to="/about-us">About Us</Link>
+              </li>
               <li className="hover:text-blue-400 cursor-pointer">Career</li>
               <li className="hover:text-blue-400 cursor-pointer">
-              <Link to="/terms-and-conditions">Terms and Conditions</Link>
+                <Link to="/terms-and-conditions">Terms and Conditions</Link>
               </li>
               <li className="hover:text-blue-400 cursor-pointer">
-              <Link to="/privacy-and-policy">Privacy Policy</Link>
+                <Link to="/privacy-and-policy">Privacy Policy</Link>
               </li>
             </ul>
           </div>
@@ -72,21 +78,29 @@ const Footer = () => {
             <h3 className="font-medium text-m mb-4 text-[#D1E4F8]">Services</h3>
             <ul className="space-y-2 text-sm">
               <li className="hover:text-blue-400 cursor-pointer">
-                Web App Design
+                Web Application Design & Development
               </li>
               <li className="hover:text-blue-400 cursor-pointer">
-                UI/UX Design
+                UProcess Automation Solutions
               </li>
               <li className="hover:text-blue-400 cursor-pointer">
-                Process Automation Engineering
+                Custom ERP Systems
               </li>
               <li className="hover:text-blue-400 cursor-pointer">
-                Product Development
+                End-to-End Product Development
               </li>
               <li className="hover:text-blue-400 cursor-pointer">
-                Landing Page Design
+                Data Integration & Engineering
               </li>
-              <li className="hover:text-blue-400 cursor-pointer">Branding</li>
+              <li className="hover:text-blue-400 cursor-pointer">
+                Data Analytics Solutions
+              </li>
+              <li className="hover:text-blue-400 cursor-pointer">
+                Brand Identity Design
+              </li>
+              <li className="hover:text-blue-400 cursor-pointer">
+                Copywriting & SEO Optimization
+              </li>
             </ul>
           </div>
 
@@ -95,12 +109,12 @@ const Footer = () => {
             <h3 className="font-medium text-base mb-4 text-[#D1E4F8]">Blogs</h3>
             <ul className="space-y-2 text-sm">
               <li className="hover:text-blue-400 cursor-pointer">
-                Business Process Automation
+                Authorizing App Script
               </li>
               <li className="hover:text-blue-400 cursor-pointer">
-                Data Management & Optimization
+                Gettinng Shopify API Credentials
               </li>
-              <li className="hover:text-blue-400 cursor-pointer">
+              {/* <li className="hover:text-blue-400 cursor-pointer">
                 Data Visualization & Analytics
               </li>
               <li className="hover:text-blue-400 cursor-pointer">
@@ -108,7 +122,7 @@ const Footer = () => {
               </li>
               <li className="hover:text-blue-400 cursor-pointer">
                 Marketing Platform Technology
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
