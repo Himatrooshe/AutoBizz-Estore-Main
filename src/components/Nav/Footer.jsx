@@ -14,11 +14,13 @@ const Footer = () => {
       <div className="flex flex-col lg:flex-row lg:justify-between font-Jakarta items-center sm:items-start">
         {/* Left Section */}
         <div className="mb-8 lg:mb-0 mr-4 text-center sm:text-left">
+        <a href="/">
           <img
             src={autobizzLogo}
             alt="AutoBizz Logo"
             className="w-80 mb-4 mx-auto sm:mx-0"
           />
+          </a>
           <h2 className="text-[46px] font-semibold mb-4 lg:text-4xl">
             We would love to hear from you
           </h2>

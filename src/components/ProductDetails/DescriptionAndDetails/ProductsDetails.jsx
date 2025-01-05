@@ -2,9 +2,11 @@ import React from "react";
 
 const Details = () => {
   return (
-    <div>
-      <h3 className="text-gray-800 font-bold text-xl mb-4">Perfect For:</h3>
-      <ul className="text-gray-600 pl-5 space-y-2">
+    <div className="text-sm sm:text-base md:text-lg">
+      <h3 className="text-gray-800 font-bold text-lg sm:text-xl mb-4">
+        Perfect For:
+      </h3>
+      <ul className="text-gray-600 pl-5 space-y-3 sm:space-y-4">
         <li>
           ✔ Shopify store owners who want real-time product tracking without the
           hassle.
@@ -26,8 +28,10 @@ const Details = () => {
         </li>
       </ul>
 
-      <h3 className="text-gray-800 font-bold text-xl mt-6 mb-4">How It Works:</h3>
-      <ol className="text-gray-600 pl-5 list-decimal space-y-2">
+      <h3 className="text-gray-800 font-bold text-lg sm:text-xl mt-6 mb-4">
+        How It Works:
+      </h3>
+      <ol className="text-gray-600 pl-5 list-decimal space-y-3 sm:space-y-4">
         <li>
           We will contact you via the email address you provide and request
           access to your store through our Shopify partner account.

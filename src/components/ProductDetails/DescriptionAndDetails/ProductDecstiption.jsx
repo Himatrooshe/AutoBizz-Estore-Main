@@ -2,11 +2,11 @@ import React from "react";
 
 const Description = () => {
   return (
-    <div>
-      <p className="text-gray-600">
+    <div className="text-sm sm:text-base md:text-lg">
+      <p className="text-gray-600 mb-2 sm:mb-4">
         <strong>Key Features You’ll Love:</strong>
       </p>
-      <ul className="text-gray-600 pl-5">
+      <ul className="text-gray-600 pl-5 space-y-3 sm:space-y-4">
         <li>
           ✔ <strong>Real-Time Data Syncing:</strong> Products data are
           automatically synced to Google Sheets every hour, so you’re always

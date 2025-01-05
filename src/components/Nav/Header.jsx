@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
 import autobizzLogo from "../../assets/Logo for Light BG.svg";
-import specialLogo from "../../assets/Logo for Dark BG.svg"; // Add special logo
+import specialLogo from "../../assets/Logo for Dark BG.svg";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../Checkout/CartContext";
 
@@ -12,8 +12,6 @@ const Header = () => {
   const [showCounter, setShowCounter] = useState(false);
 
   const location = useLocation();
-
-  // Define routes requiring special menu name color and logo
   const specialRoutes = ["/about-us", "/privacy-and-policy", "/terms-and-conditions"];
   const isSpecialPage = specialRoutes.includes(location.pathname);
 
@@ -22,18 +20,16 @@ const Header = () => {
   }, [cart]);
 
   return (
-    <header
-      className="fixed w-full bg-[#ECF6FF20] backdrop-blur-sm z-10 lg:px-[55px] px-[55px]"
-    >
+    <header className="fixed w-full bg-[#ECF6FF20] backdrop-blur-sm z-10 lg:px-[55px] px-[55px]">
       <div className="container mx-auto py-2 flex justify-between items-center">
         <div className="text-2xl font-bold flex items-center">
-          <Link to="/">
+          <a href="/">
             <img
               src={isSpecialPage ? specialLogo : autobizzLogo}
               alt="Logo"
               className="w-30 h-8 md:h-10 lg:h-12"
             />
-          </Link>
+          </a>
         </div>
 
         <nav className="hidden lg-md:flex flex-grow justify-center space-x-6 lg:space-x-8">
@@ -72,9 +68,7 @@ const Header = () => {
               )}
             </button>
           </Link>
-          <button
-            className="flex items-center bg-[#1c5a7a] text-[#E1F0F8] px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-          >
+          <button className="flex items-center bg-[#1c5a7a] text-[#E1F0F8] px-4 py-2 rounded-lg hover:bg-blue-600 transition">
             Free Consultation
           </button>
         </div>
@@ -101,11 +95,9 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <nav
-          className="lg-md:hidden bg-[#ECF6FF20] backdrop-blur-sm mt-2"
-        >
+        <nav className="lg-md:hidden bg-[#ECF6FF20] backdrop-blur-sm mt-2">
           <ul className="space-y-4 pl-6 font-medium">
-            {[ "Home", "Our Services", "Portfolio", "Case Study", "About Us" ].map((item, index) => (
+            {["Home", "Our Services", "Portfolio", "Case Study", "About Us"].map((item, index) => (
               <li key={index}>
                 <Link
                   to={
@@ -125,9 +117,7 @@ const Header = () => {
             ))}
           </ul>
           <div className="mt-4 pl-6">
-            <button
-              className="flex items-center justify-center bg-[#1c5a7a] hover:bg-blue-600 text-white px-6 py-3 rounded-md transition"
-            >
+            <button className="flex items-center justify-center bg-[#1c5a7a] hover:bg-blue-600 text-white px-6 py-3 rounded-md transition">
               Free Consultation
             </button>
           </div>

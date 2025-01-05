@@ -31,42 +31,44 @@ const Faqs = () => {
   ];
 
   return (
-    <div className="bg-[#F5F8F9] lg:w-[850px] rounded-xl shadow-lg p-4">
+    <div className="bg-[#F5F8F9] lg:w-[850px] rounded-xl shadow-lg p-4 sm:p-6 lg:p-8">
       {faqList.map((faq, index) => (
         <div key={index} className="border-b last:border-none">
           <div
-            className="flex justify-between items-center py-4 cursor-pointer"
+            className="flex justify-between items-center py-4 sm:py-6 cursor-pointer"
             onClick={() => toggleQuestion(index)}
           >
-            <h2 className="text-lg font-medium">{faq.question}</h2>
+            <h2 className="text-base sm:text-lg lg:text-xl font-medium text-gray-700">
+              {faq.question}
+            </h2>
             <div
-              className={`transition-transform duration-900 ${
+              className={`transition-transform duration-300 ${
                 openQuestion === index ? "rotate-180" : ""
               }`}
             >
               {openQuestion === index ? (
                 <svg
-                  width="10"
-                  height="6"
-                  viewBox="0 0 10 6"
+                  width="12"
+                  height="8"
+                  viewBox="0 0 12 8"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M0 5.5498L5 0.549805L10 5.5498H0Z"
+                    d="M0 7L6 1L12 7H0Z"
                     fill="#55BAE7"
                   />
                 </svg>
               ) : (
                 <svg
-                  width="10"
-                  height="6"
-                  viewBox="0 0 10 6"
+                  width="12"
+                  height="8"
+                  viewBox="0 0 12 8"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M0 0.549805L5 5.5498L10 0.549805H0Z"
+                    d="M0 1L6 7L12 1H0Z"
                     fill="#55BAE7"
                   />
                 </svg>
@@ -75,7 +77,7 @@ const Faqs = () => {
           </div>
 
           {openQuestion === index && (
-            <div className="py-2 text-gray-600">
+            <div className="py-2 sm:py-4 text-sm sm:text-base text-gray-600">
               <p>{faq.answer}</p>
             </div>
           )}
