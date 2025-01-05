@@ -1,54 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import random from "../../assets/Product Image.png";
 
 const ProductCard = () => {
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  const product = {
+    name: "Enterprise Custom Solution",
+    description: `
+      We’re here to get to know your business, understand the systems you’re
+      already using, and see how we can help make things better. Our focus
+      is on learning about your needs, solving any challenges you’re facing,
+      and finding ways to work together to achieve your goals. Whether it’s
+      simplifying workflows, connecting your tools, or improving efficiency,
+      we want to help you succeed.
+    `,
+    reviews: 45,
+  };
+
   return (
-    <div className="4xl:w-[426px] h-[760px] md:w-[340px] rounded-[40px] overflow-hidden shadow-lg bg-[#F5F8F9] p-6 flex flex-col justify-between transition-transform transform hover:scale-105 hover:shadow-lg">
+    <div className="4xl:w-[380px] h-[690px] md:w-[340px] rounded-[20px] overflow-hidden shadow-lg bg-[#F5F8F9] p-6 flex flex-col justify-between transition-transform transform hover:scale-105 hover:shadow-lg">
+      {/* Product Image */}
       <div>
         <Link to="/enterprise-custom-solution-details">
           <img
-            className="w-full max-h-[300px] object-cover rounded-[30px]"
+            className="w-full max-h-[300px] object-cover rounded-[20px]"
             src={random}
-            alt="Product"
+            alt={product.name}
           />
         </Link>
 
+        {/* Product Tags */}
         <div className="flex space-x-2 mt-4">
-          <span className="bg-[#97E15E] text-[#2B2B34] text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">
-            Sheets
+          <span className="bg-[#26A668] text-white text-xs font-medium px-2.5 py-0.5 rounded-full">
+            Google Sheets
           </span>
-          <span className="bg-[#309FFF] text-white text-xs font-medium px-2.5 py-0.5 rounded-full">
-            Looker Studio
+          <span className="bg-[#97C04C] text-white text-xs font-medium px-2.5 py-0.5 rounded-full">
+            
           </span>
         </div>
+
+        {/* Product Title */}
         <Link to="/enterprise-custom-solution-details">
-          <h2 className="mt-4 text-xl font-bold">Enterprise Custom Solution</h2>
+          <h2 className="mt-4 text-xl font-bold">{product.name}</h2>
         </Link>
-        <p className="text-gray-600 text-sm mt-2 font-semibold">
-          We’re here to get to know your business, understand the systems you’re
-          already using, and see how we can help make things better. Our focus
-          is on learning about your needs, solving any challenges you’re facing,
-          and finding ways to work together to achieve your goals. Whether it’s
-          simplifying workflows, connecting your tools, or improving efficiency,
-          we want to help you succeed.
-        </p>
+
+        {/* Product Description */}
+        <div className="mt-4 text-justify">
+          {!showFullDescription ? (
+            <div className="relative">
+              <p
+                className="text-gray-600 text-sm font-semibold line-clamp-3"
+                style={{
+                  display: "-webkit-box",
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: 4,
+                  overflow: "hidden",
+                }}
+              >
+                {product.description}
+              </p>
+              <div
+                className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-[#F5F8F9] via-[#F5F8F9]"
+                style={{ opacity: 0.8 }}
+              ></div>
+            </div>
+          ) : (
+            <p className="text-gray-600 text-sm font-semibold">
+              {product.description}
+            </p>
+          )}
+
+          {/* "See More" Button */}
+          {!showFullDescription && (
+            <div className="text-center mt-2">
+              <Link
+                to="/enterprise-custom-solution-details"
+                className="flex justify-center items-center font-semibold hover:underline"
+              >
+                <span>See More</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-5 h-5 ml-2"
+                >
+                  <path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12H16L12 16L8 12H11V8H13V12Z"></path>
+                </svg>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
 
+      {/* Pricing and CTA */}
       <div className="mt-auto">
+        {/* Pricing */}
         <div className="flex items-center justify-between mt-4">
           <div className="flex items-center space-x-1">
             <span className="text-[26px] font-bold text-[#1c5a7a]">$$$</span>
-            <span className="text-[20px] font-normal text-[#888] line-through">
-              $$$
+            <span className="text-[20px] font-normal text-red-500">
+              $$${product.originalPrice}
             </span>
           </div>
 
-          <div className="flex">
-            {[...Array(5)].map((_, index) => (
-              <span key={index}>
-                {/* SVG for rating stars */}
+          {/* Ratings */}
+          <div className="flex items-center space-x-2">
+            <div className="flex">
+              {[...Array(5)].map((_, index) => (
                 <svg
+                  key={index}
                   width="15"
                   height="15"
                   viewBox="0 0 15 15"
@@ -62,14 +123,16 @@ const ProductCard = () => {
                     clipRule="evenodd"
                   ></path>
                 </svg>
-              </span>
-            ))}
+              ))}
+            </div>
+            <span className="text-gray-500 text-sm">({product.reviews})</span>
           </div>
         </div>
 
-        <Link to="/checkout">
+        {/* CTA Button */}
+        <Link to="">
           <button className="mt-6 w-full bg-[#1c5a7a] text-white text-lg font-semibold py-4 rounded-[12px] flex justify-center items-center space-x-2 transition duration-300">
-            <span> Book a free consultation</span>
+            <span>Book a free consultation</span>
           </button>
         </Link>
       </div>

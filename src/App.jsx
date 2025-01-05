@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,9 +8,7 @@ import {
 import Header from "./components/Nav/Header";
 import Footer from "./components/Nav/Footer";
 import AboutUs from "./components/us/AboutUs";
-import ProductDataSync from "./components/ProductCart/ProductDataSync";
-import OrderDataSync from "./components/ProductCart/OrderDataSync";
-import InventoryDataSync from "./components/ProductCart/InventoryDataSync";
+import ProductCard from "./components/ProductCart/ProductCard";
 import EnterpriseCustomSolution from "./components/ProductCart/EnterpriseCustomSolution";
 import HeroSection from "./components/Herosection/HeroSection";
 import Review from "./components/Reviews/Review";
@@ -21,6 +19,7 @@ import InventoryDataSyncDetails from "./components/ProductDetails/InventoryDataS
 import EnterpriseCustomSolutionDetails from "./components/ProductDetails/EnterpriseCustomSolutionDetails";
 import PrivacyAndPolicy from "./components/Privacy/PrivacyAndPolicy";
 import TermsAndConditions from "./components/Privacy/TermsAndConditions";
+import CartAddedPop from "./components/ProductCart/CartAddedPop";
 
 // ScrollToTop Component
 const ScrollToTop = () => {
@@ -47,6 +46,18 @@ const Layout = ({ children }) => {
 };
 
 function App() {
+  const [popup, setPopup] = useState(false);
+  const [product, setProduct] = useState(null);
+
+  const handleAddToCart = (selectedProduct) => {
+    setProduct(selectedProduct);
+    setPopup(true);
+  };
+
+  const closePopup = () => {
+    setPopup(false);
+  };
+
   return (
     <Router>
       <ScrollToTop />
@@ -61,10 +72,20 @@ function App() {
                   <div className="container mx-auto">
                     <div className="sm:px-10 lg:px-20 px-[55px] py-10">
                       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 4xl:grid-cols-4 gap-y-6 sm:gap-y-8 lg:gap-y-10 xl:gap-y-12 2xl:gap-y-14 4xl:gap-y-16 gap-x-4 sm:gap-x-10 lg:gap-x-10 xl:gap-x-16 2xl:gap-x-24 4xl:gap-x-24 justify-items-center">
-                        <ProductDataSync />
-                        <OrderDataSync />
-                        <InventoryDataSync />
-                        <EnterpriseCustomSolution />
+                        {/* Product cards */}
+                        <ProductCard
+                          productType="products"
+                          onAddToCart={handleAddToCart}
+                        />
+                        <ProductCard
+                          productType="orders"
+                          onAddToCart={handleAddToCart}
+                        />
+                        <ProductCard
+                          productType="inventory"
+                          onAddToCart={handleAddToCart}
+                        />
+                        <EnterpriseCustomSolution onAddToCart={handleAddToCart} />
                       </div>
                     </div>
                   </div>
@@ -94,6 +115,9 @@ function App() {
           <Route path="/privacy-and-policy" element={<PrivacyAndPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         </Routes>
+
+        {/* Render the CartAddedPop component */}
+        {popup && <CartAddedPop product={product} onClose={closePopup} />}
       </Layout>
     </Router>
   );
