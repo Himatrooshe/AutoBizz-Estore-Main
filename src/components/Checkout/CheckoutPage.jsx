@@ -8,8 +8,8 @@ const CheckoutPage = () => {
   const { cart, removeFromCart } = useCart();
 
   const subtotal = cart.reduce((total, item) => total + item.price, 0);
-  const vat = subtotal * 0.15;
-  const total = subtotal + vat;
+  // const vat = subtotal * 0.15;
+  const total = subtotal;
 
   const paymentTest = (price, par1 = "", par2 = "") => {
     console.log("Processing payment with:", price, par1, par2);
@@ -53,10 +53,10 @@ const CheckoutPage = () => {
               <span className="text-lg font-medium">Subtotal</span>
               <p className="text-gray-400">${subtotal.toFixed(2)}</p>
             </div>
-            <div className="flex justify-between">
+            {/* <div className="flex justify-between">
               <span className="text-lg font-medium">VAT (15%)</span>
               <p className="text-gray-400">${vat.toFixed(2)}</p>
-            </div>
+            </div> */}
             <div className="flex justify-between font-bold text-xl mt-4">
               <span>Total</span>
               <span>${total.toFixed(2)}</span>

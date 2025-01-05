@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import random from "../../assets/Product Image.png";
 import CartAddedPop from "./CartAddedPop";
 
+
 const ProductCard = ({ productType }) => {
   const { addToCart } = useCart();
   const [popup, setPopup] = useState(false);
@@ -50,7 +51,7 @@ const ProductCard = ({ productType }) => {
   const handleOrderNow = () => {
     addToCart(product);
     setPopup(true);
-    setTimeout(() => setPopup(false), 3000); // Close popup automatically after 3 seconds
+    setTimeout(() => setPopup(false), 10000); // Close popup automatically after 3 seconds
   };
 
   const closePopup = () => {
