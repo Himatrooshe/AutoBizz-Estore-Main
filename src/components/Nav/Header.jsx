@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
-import autobizzLogo from "../../assets/Logo for Light BG.svg";
+import autobizzLogo from "../../assets/AutoBizz Ecom Header Logo V1-1-20-20.svg";
 import specialLogo from "../../assets/Logo for Dark BG.svg";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../Checkout/CartContext";
@@ -45,7 +45,7 @@ const Header = () => {
                     : `#${item.toLowerCase().replace(" ", "-")}`
                 }
                 className={`${
-                  isSpecialPage ? "text-white hover:text-gray-300" : "text-black hover:text-blue-500"
+                  isSpecialPage ? "text-white hover:text-gray-300" : "text-black hover:text-[#1c5a7a]"
                 }`}
               >
                 {item}
@@ -68,7 +68,7 @@ const Header = () => {
               )}
             </button>
           </Link>
-          <button className="flex items-center bg-[#1c5a7a] text-[#E1F0F8] px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+          <button className="flex items-center bg-[#1c5a7a] text-[#E1F0F8] px-4 py-2 rounded-lg transition">
             Free Consultation
           </button>
         </div>
@@ -108,7 +108,7 @@ const Header = () => {
                       : `#${item.toLowerCase().replace(" ", "-")}`
                   }
                   className={`block ${
-                    isSpecialPage ? "text-white hover:text-gray-300" : "text-[#1C5A7A] hover:text-blue-500"
+                    isSpecialPage ? "text-white hover:text-gray-300" : "text-[#1C5A7A]"
                   }`}
                 >
                   {item}

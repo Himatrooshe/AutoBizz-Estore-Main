@@ -74,7 +74,9 @@ const ProductCard = ({ productType }) => {
           </span>
         </div>
         <Link to={product.detailsEndpoint}>
-          <h2 className="mt-4 text-lg sm:text-xl font-bold">{product.name}</h2>
+          <h2 className="mt-4 text-lg sm:text-xl font-bold hover:underline">
+            {product.name}
+          </h2>
         </Link>
 
         <div className="mt-4 text-justify">
@@ -106,14 +108,14 @@ const ProductCard = ({ productType }) => {
             <div className="flex justify-center mt-4">
               <Link
                 to={product.detailsEndpoint}
-                className="flex items-center text-sm sm:text-base font-semibold hover:underline"
+                className="flex justify-center items-center font-semibold hover:underline animate-float"
               >
                 <span>See More</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-4 sm:w-5 h-4 sm:h-5 ml-2"
+                  className="w-5 h-5 ml-2"
                 >
                   <path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12H16L12 16L8 12H11V8H13V12Z"></path>
                 </svg>
@@ -157,7 +159,6 @@ const ProductCard = ({ productType }) => {
           onClick={handleOrderNow}
           className="mt-6 w-full bg-[#1c5a7a] text-white text-sm sm:text-lg font-semibold py-2 sm:py-4 rounded-[12px] flex justify-center items-center space-x-2 transition duration-300"
         >
-          
           <span>Add to Cart</span>
           <FiShoppingCart />
         </button>

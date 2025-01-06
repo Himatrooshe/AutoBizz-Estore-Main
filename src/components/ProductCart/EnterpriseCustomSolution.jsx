@@ -19,7 +19,7 @@ const ProductCard = () => {
   };
 
   return (
-    <div className="w-full sm:w-[90%] md:w-[340px] lg:w-[380px] max-w-[400px] h-auto rounded-[20px] overflow-hidden shadow-lg bg-[#F5F8F9] p-4 md:p-6 flex flex-col justify-between transition-transform transform hover:scale-105 hover:shadow-lg">
+    <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-auto rounded-[20px] overflow-hidden shadow-lg bg-[#F5F8F9] p-6 flex flex-col justify-between transition-transform transform hover:scale-105 hover:shadow-lg">
       {/* Product Image */}
       <div>
         <Link to="/enterprise-custom-solution-details">
@@ -31,14 +31,16 @@ const ProductCard = () => {
         </Link>
 
         <div className="flex flex-wrap space-x-2 mt-4">
-          <span className="bg-[#26A668] text-white text-xs font-medium px-2.5 py-0.5 rounded-full">
-            Google Sheets
+          <span className="bg-[#74BAF0] text-white text-xs sm:text-sm font-medium px-2.5 py-0.5 rounded-full">
+            Agnostic Tech Stack
           </span>
-          <span className="bg-[#97C04C] text-white text-xs font-medium px-2.5 py-0.5 rounded-full"></span>
+          {/* <span className="bg-[#97C04C] text-white text-xs font-medium px-2.5 py-0.5 rounded-full"></span> */}
         </div>
 
         <Link to="/enterprise-custom-solution-details">
-          <h2 className="mt-4 text-lg sm:text-xl font-bold">{product.name}</h2>
+          <h2 className="mt-4 text-lg sm:text-xl font-bold hover:underline">
+            {product.name}
+          </h2>
         </Link>
 
         <div className="mt-4 text-justify">
@@ -71,7 +73,7 @@ const ProductCard = () => {
             <div className="text-center mt-2">
               <Link
                 to="/enterprise-custom-solution-details"
-                className="flex justify-center items-center font-semibold hover:underline"
+                className="flex justify-center items-center font-semibold hover:underline animate-float"
               >
                 <span>See More</span>
                 <svg
@@ -93,7 +95,9 @@ const ProductCard = () => {
         {/* Pricing */}
         <div className="flex items-center justify-between mt-4">
           <div className="flex items-center space-x-1">
-            <span className="text-lg sm:text-xl font-bold text-[#1c5a7a]">$$$</span>
+            <span className="text-lg sm:text-xl font-bold text-[#1c5a7a]">
+              $$$
+            </span>
           </div>
 
           {/* Ratings */}

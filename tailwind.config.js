@@ -7,7 +7,22 @@ module.exports = {
         inter: ['Inter', 'sans-serif'],
       },
       screens: {
-        'lg-md': '1045px', 
+        'lg-md': '1045px',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(-5px)' },
+          '50%': { transform: 'translateY(5px)' },
+        },
+        wave: {
+          '0%': { transform: 'translateX(0%)' },
+          '50%': { transform: 'translateX(-10%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+      },
+      animation: {
+        float: 'float 2s ease-in-out infinite',
+        wave: 'wave 1s ease-in-out infinite',
       },
     },
     screens: {
