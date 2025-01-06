@@ -14,12 +14,12 @@ const Footer = () => {
       <div className="flex flex-col lg:flex-row lg:justify-between font-Jakarta items-center sm:items-start">
         {/* Left Section */}
         <div className="mb-8 lg:mb-0 mr-4 text-center sm:text-left">
-        <a href="/">
-          <img
-            src={autobizzLogo}
-            alt="AutoBizz Logo"
-            className="w-80 mb-4 mx-auto sm:mx-0"
-          />
+          <a href="/">
+            <img
+              src={autobizzLogo}
+              alt="AutoBizz Logo"
+              className="w-80 mb-4 mx-auto sm:mx-0"
+            />
           </a>
           <h2 className="text-[46px] font-semibold mb-4 lg:text-4xl">
             We would love to hear from you
@@ -60,8 +60,25 @@ const Footer = () => {
               AutoBizz
             </h3>
             <ul className="space-y-2 text-sm">
-              <li className="hover:text-blue-400 cursor-pointer">Our work</li>
-              <li className="hover:text-blue-400 cursor-pointer">Services</li>
+              <li className="hover:text-blue-400 cursor-pointer">
+                <Link
+                  to="https://www.fiverr.com/neel_chowdhury"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Our work
+                </Link>
+              </li>
+              <li className="hover:text-blue-400 cursor-pointer">
+                <Link
+                  to="https://www.autobizz.net/#services"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Services
+                </Link>
+              </li>
+
               <li className="hover:text-blue-400 cursor-pointer">
                 <Link to="/about-us">About Us</Link>
               </li>

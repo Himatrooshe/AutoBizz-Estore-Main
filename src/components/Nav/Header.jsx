@@ -12,7 +12,11 @@ const Header = () => {
   const [showCounter, setShowCounter] = useState(false);
 
   const location = useLocation();
-  const specialRoutes = ["/about-us", "/privacy-and-policy", "/terms-and-conditions"];
+  const specialRoutes = [
+    "/about-us",
+    "/privacy-and-policy",
+    "/terms-and-conditions",
+  ];
   const isSpecialPage = specialRoutes.includes(location.pathname);
 
   useEffect(() => {
@@ -20,7 +24,7 @@ const Header = () => {
   }, [cart]);
 
   return (
-    <header className="fixed w-full bg-[#ECF6FF20] backdrop-blur-sm z-10 lg:px-[55px] px-[55px]">
+    <header className="fixed w-full backdrop-blur-sm z-10 lg:px-[55px] px-[40px]">
       <div className="container mx-auto py-2 flex justify-between items-center">
         <div className="text-2xl font-bold flex items-center">
           <a href="/">
@@ -32,7 +36,7 @@ const Header = () => {
           </a>
         </div>
 
-        <nav className="hidden lg-md:flex flex-grow justify-center space-x-6 lg:space-x-8">
+        <nav className="hidden lg-md:flex flex-grow justify-center space-x-6 lg:space-x-8 font-inter">
           {["Home", "Our Services", "Portfolio", "Case Study", "About Us"].map(
             (item, index) => (
               <Link
@@ -42,13 +46,30 @@ const Header = () => {
                     ? "/"
                     : item === "About Us"
                     ? "/about-us"
+                    : item === "Portfolio"
+                    ? "https://www.fiverr.com/neel_chowdhury"
+                    : item === "Our Services"
+                    ? "https://www.autobizz.net/#services"
                     : `#${item.toLowerCase().replace(" ", "-")}`
                 }
-                className={`${
-                  isSpecialPage ? "text-white hover:text-gray-300" : "text-black hover:text-[#1c5a7a]"
-                }`}
+                target={
+                  item === "Portfolio" || item === "Our Services"
+                    ? "_blank"
+                    : "_self"
+                }
+                className={`relative group ${
+                  isSpecialPage ? "text-white" : "text-black"
+                } hover:text-[#29ABE2]`}
               >
-                {item}
+                {item.split("").map((char, charIndex) => (
+                  <span
+                    key={`${char}-${charIndex}`}
+                    className="inline-block translate-y-0 group-hover:animate-text-scroll [animation-fill-mode:forwards]"
+                    style={{ animationDelay: `${charIndex * 0.05}s` }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                ))}
               </Link>
             )
           )}
@@ -95,9 +116,15 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <nav className="lg-md:hidden bg-[#ECF6FF20] backdrop-blur-sm mt-2">
-          <ul className="space-y-4 pl-6 font-medium">
-            {["Home", "Our Services", "Portfolio", "Case Study", "About Us"].map((item, index) => (
+        <nav className="lg-md:hidden backdrop-blur-sm mt-2">
+          <ul className="space-y-4 font-medium">
+            {[
+              "Home",
+              "Our Services",
+              "Portfolio",
+              "Case Study",
+              "About Us",
+            ].map((item, index) => (
               <li key={index}>
                 <Link
                   to={
@@ -105,10 +132,21 @@ const Header = () => {
                       ? "/"
                       : item === "About Us"
                       ? "/about-us"
+                      : item === "Portfolio"
+                      ? "https://www.fiverr.com/neel_chowdhury"
+                      : item === "Our Services"
+                      ? "https://www.autobizz.net/#services"
                       : `#${item.toLowerCase().replace(" ", "-")}`
                   }
+                  target={
+                    item === "Portfolio" || item === "Our Services"
+                      ? "_blank"
+                      : "_self"
+                  }
                   className={`block ${
-                    isSpecialPage ? "text-white hover:text-gray-300" : "text-[#1C5A7A]"
+                    isSpecialPage
+                      ? "text-white hover:text-gray-300"
+                      : "text-[#1C5A7A]"
                   }`}
                 >
                   {item}
@@ -116,8 +154,8 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <div className="mt-4 pl-6">
-            <button className="flex items-center justify-center bg-[#1c5a7a] hover:bg-blue-600 text-white px-6 py-3 rounded-md transition">
+          <div className="mt-4">
+            <button className="flex items-center justify-center bg-[#1c5a7a] hover:bg-blue-600 text-white px-6 py-3 rounded-md transition mb-4">
               Free Consultation
             </button>
           </div>

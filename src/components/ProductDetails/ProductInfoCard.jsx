@@ -4,16 +4,16 @@ import { useCart } from "../Checkout/CartContext";
 import ExpertBadge from "./ExpertBadge";
 import Asses from "../../assets/A-1.png";
 
-const ProductInfoCard = ({ 
-  title, 
-  headerTitle, 
-  description, 
-  price, 
-  originalPrice, 
-  discount, 
-  linkTo, 
-  buttonLabel, 
-  features 
+const ProductInfoCard = ({
+  title,
+  headerTitle,
+  description,
+  price,
+  originalPrice,
+  discount,
+  linkTo,
+  buttonLabel,
+  features,
 }) => {
   const { addToCart } = useCart();
 
@@ -29,14 +29,13 @@ const ProductInfoCard = ({
   };
 
   return (
-    <div className="w-full lg:w-[470px] lg:sticky lg:top-[60px] px-4 sm:px-8 lg:px-0">
+    <div className="w-full lg:w-[470px] lg:sticky lg:top-16 px-4 sm:px-8 lg:px-0">
       {/* Breadcrumb */}
       <nav className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-4 font-semibold">
         <Link to="/" className="text-gray-500 hover:text-[#1c5a7a] transition">
           Home
         </Link>{" "}
-        /{" "}
-        <span className="text-[#1c5a7a]">{title}</span>
+        / <span className="text-[#1c5a7a]">{title}</span>
       </nav>
 
       {/* Header Title */}
@@ -51,15 +50,11 @@ const ProductInfoCard = ({
 
       {/* Badge */}
       <div className="mb-6">
-        <ExpertBadge
-          image={Asses}
-          count={171}
-          text="purchased the template"
-        />
+        <ExpertBadge image={Asses} count={171} text="purchased the template" />
       </div>
 
       {/* Pricing Section */}
-      <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-md w-full max-w-md mx-auto">
+      <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-md w-full max-w-md">
         <div className="flex flex-wrap items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-4">
           <span className="text-xl sm:text-2xl font-bold text-[#1c5a7a]">
             ${price}
@@ -78,10 +73,10 @@ const ProductInfoCard = ({
         <p className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6">
           One-time payment
         </p>
-        <div className="flex flex-wrap space-y-4 sm:space-y-0 sm:space-x-4">
+        <div className="lg:flex flex-wrap space-y-4 sm:space-y-0 sm:space-x-4">
           <button
             onClick={handleAddToCart}
-            className="bg-[#1c5a7a] text-white py-2 sm:py-3 px-4 sm:px-8 rounded-xl hover:bg-blue-900 w-full sm:w-auto"
+            className="bg-[#1c5a7a] text-white py-2 sm:py-3 px-4 sm:px-8 rounded-xl hover:bg-blue-900 w-full sm:w-auto mb-6"
           >
             {buttonLabel}
           </button>

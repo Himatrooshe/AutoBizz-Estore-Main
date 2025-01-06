@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
     <section className="bg-[#DBEAFE] py-0 sm:py-12 px-[60px]">
       <div className="container mx-auto flex flex-col-reverse xl:flex-row items-center">
-        <div className="w-full xl:w-2/3 text-center 4xl:text-left mt-6 md:mt-0">
+        <div className="w-full text-center 4xl:text-left mt-6 md:mt-0">
           <h1 className="text-[43px] font-semibold text-[#2D7498] mb-4 4xl:text-start 2xl:text-start xl:text-start lg:text-center">
             Your Tech Simplification Partner
           </h1>
@@ -59,8 +59,8 @@ const HeroSection = () => {
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      width="25"
-                      height="25"
+                      width="22"
+                      height="22"
                       viewBox="0 0 15 15"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@ const HeroSection = () => {
                       ></path>
                     </svg>
                   ))}
-                  <p className="text-md text-black ml-4">(5)</p>
+                  <p className="text-lg font-inter font-semibold text-[#1c5a7a] ml-4">(5)</p>
                 </div>
                 <p className="text-xl font-normal text-gray-700">
                   89+ orders review

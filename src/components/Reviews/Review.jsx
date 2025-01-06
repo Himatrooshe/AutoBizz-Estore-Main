@@ -38,7 +38,7 @@ const Review = () => {
             {reviews.map((review, index) => (
               <SwiperSlide key={index}>
                 <div
-                  className="flex flex-col overflow-hidden shadow-xl rounded-xl bg-white p-4 lg:py-6 lg:px-5 h-[200px] sm:h-[300px] w-[320px] sm:w-[380px]"
+                  className="flex flex-col overflow-hidden shadow-xl rounded-xl bg-white p-4 lg:py-6 lg:px-5 h-[260px] sm:h-[300px] w-[380px] sm:w-[380px]"
                   // style={{ height: "300px" }}
                 >
                   <div className="flex items-center justify-between">
