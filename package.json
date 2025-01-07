@@ -26,6 +26,7 @@
     "react-transition-group": "^4.4.5",
     "stripe": "^17.4.0",
     "swiper": "^11.1.15",
+    "tailwindcss-pseudo-elements": "^2.0.0",
     "typeface-inter": "^3.18.1"
   },
   "devDependencies": {

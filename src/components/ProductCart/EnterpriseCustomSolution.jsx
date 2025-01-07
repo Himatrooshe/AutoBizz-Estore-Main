@@ -133,9 +133,16 @@ const ProductCard = () => {
 
         {/* CTA Button */}
         <Link to="">
-          <button className="mt-6 w-full bg-[#1c5a7a] text-white text-base sm:text-lg font-semibold py-3 sm:py-4 rounded-[12px] flex justify-center items-center space-x-2 transition duration-300">
-            <span>Book a free consultation</span>
-          </button>
+        <button
+  className="relative mt-6 w-full bg-gradient-to-b from-[#1c5a7a] to-[#174a63] text-white text-base sm:text-lg font-semibold py-3 sm:py-4 rounded-[12px] flex justify-center items-center space-x-2 shadow-lg shadow-gray-800 transition duration-300 hover:scale-105"
+>
+  <span>Book a free consultation</span>
+  <div
+    className="before:absolute before:w-[90%] before:h-[50%] before:bg-white before:top-0 before:left-1/2 before:-translate-x-1/2 before:opacity-20 before:rounded-t-[10px]
+               after:absolute after:w-[90%] after:h-[4px] after:bg-[#ffffff22] after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:rounded-full"
+  ></div>
+</button>
+
         </Link>
       </div>
     </div>
