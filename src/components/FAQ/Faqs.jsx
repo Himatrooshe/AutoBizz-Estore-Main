@@ -31,7 +31,7 @@ const Faqs = () => {
   ];
 
   return (
-    <div className="bg-[#F5F8F9] lg:w-[850px] rounded-xl shadow-lg p-4 sm:p-6 lg:p-8">
+    <div className="bg-[#F5F8F9] rounded-xl shadow-lg p-4 sm:p-6 lg:p-8">
       {faqList.map((faq, index) => (
         <div key={index} className="border-b last:border-none">
           <div

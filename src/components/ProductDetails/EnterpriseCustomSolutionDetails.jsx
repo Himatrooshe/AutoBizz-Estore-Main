@@ -29,7 +29,7 @@ const ProductDataSyncDetails = () => {
   const products = [
     { type: "orders" },
     { type: "inventory" },
-    { type: "enterprise" },
+    { type: "products" },
   ];
 
   return (
@@ -42,7 +42,7 @@ const ProductDataSyncDetails = () => {
           {/* Image Carousel */}
           <div className="relative w-full max-w-full lg:max-w-[850px]">
             <img
-              className="w-full max-w-full h-auto lg:h-[510px] object-cover rounded-2xl"
+              className="w-full max-w-full h-auto"
               src={images[currentImage]}
               alt="Product"
             />

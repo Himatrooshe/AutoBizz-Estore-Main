@@ -4,11 +4,11 @@ import EnterpriseCustomSolution from "../ProductCart/EnterpriseCustomSolution";
 
 const ProductCarousel = ({ products }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 640);
+      setWindowWidth(window.innerWidth);
     };
 
     window.addEventListener("resize", handleResize);
@@ -23,12 +23,17 @@ const ProductCarousel = ({ products }) => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + products.length) % products.length);
   };
 
-  const visibleProducts = isMobile
-    ? [products[currentIndex]]
-    : [
-        products[currentIndex],
-        products[(currentIndex + 1) % products.length],
-      ];
+  let visibleProducts;
+  if (windowWidth <= 640) {
+    visibleProducts = [products[currentIndex]];
+  } else if (windowWidth <= 1250 && windowWidth > 1023) {
+    visibleProducts = [products[currentIndex]];
+  } else {
+    visibleProducts = [
+      products[currentIndex],
+      products[(currentIndex + 1) % products.length],
+    ];
+  }
 
   return (
     <div className="relative w-full">
@@ -64,7 +69,9 @@ const ProductCarousel = ({ products }) => {
         {/* Cards Container */}
         <div
           className={`grid ${
-            isMobile ? "grid-cols-1" : "grid-cols-2"
+            windowWidth <= 640 || (windowWidth <= 1250 && windowWidth > 1023)
+              ? "grid-cols-1"
+              : "grid-cols-2"
           } gap-6 w-full`}
         >
           {visibleProducts.map((product, index) => (

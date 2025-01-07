@@ -16,7 +16,7 @@ const HeroSection = () => {
             Innovation you can Trust, Simplicity you’ll love
           </p>
 
-          <div className="flex flex-wrap justify-center 4xl:justify-start 2xl:justify-start xl:justify-start gap-6">
+          <div className="flex 2xl:flex-wrap justify-center 4xl:justify-start 2xl:justify-start xl:justify-start gap-6">
             <div className="bg-[#F5F8F9] p-4 sm:p-6 rounded-xl shadow-sm text-center 4xl:w-[307px] 2xl:w-[307px] xl:w-[307px] lg:w-[307px] md:w-[307px] w-[100%] transition-transform transform hover:scale-105 hover:shadow-lg">
               <p className="text-[30px] sm:text-[75px] font-bold text-[#1c5a7a]">
                 <CountUp start={0} end={180} duration={4.5} />+
@@ -87,7 +87,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-[60%] mb-8">
+        <div className="w-full mb-8">
           <img src={hero} alt="Hero Section" className="w-full" />
         </div>
       </div>

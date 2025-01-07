@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import random from "../../assets/Product Image.png";
 import Asses from "../../assets/A-1.png";
 import { FiEdit, FiShare2, FiSettings, FiDownload } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import ProductCard from "../ProductCart/ProductCard";
-import EnterpriseCustomSolution from "../ProductCart/EnterpriseCustomSolution";
+import ProductInfoCard from "./ProductInfoCard";
+import FeatureList from "./FeatureList";
+import ProductCarousel from "../ProductDetails/ProductCarousel";
 import Faqs from "../FAQ/Faqs";
 import ProductReviews from "../Reviews/products-review/ProductReviews";
 import Details from "./DescriptionAndDetails/InventoryDetails";
 import Description from "./DescriptionAndDetails/InventoryDecstiption";
-import ProductInfoCard from "./ProductInfoCard";
-import FeatureList from "./FeatureList";
-import ProductCarousel from "../ProductDetails/ProductCarousel";
 
-const InventoryDataSyncDetails = () => {
+const InventorySyncPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [activeTab, setActiveTab] = useState("description");
 
@@ -36,16 +33,14 @@ const InventoryDataSyncDetails = () => {
   ];
 
   return (
-    <div className="flex justify-center bg-[#DBEAFE] py-12 sm:py-16 lg:py-20 px-4 ">
-      
+    <div className="flex justify-center bg-[#DBEAFE] py-12 sm:py-16 lg:py-20 px-4">
       <div className="max-w-[1400px] flex flex-col lg:flex-row lg:gap-8 gap-6 w-full">
-        
         {/* Left Column */}
         <div className="w-full lg:flex-1">
           {/* Image Carousel */}
           <div className="relative w-full max-w-full lg:max-w-[850px]">
             <img
-              className="w-full max-w-full h-auto lg:h-[510px] object-cover rounded-2xl"
+              className="w-full h-auto"
               src={images[currentImage]}
               alt="Product"
             />
@@ -89,40 +84,38 @@ const InventoryDataSyncDetails = () => {
             </button>
           </div>
           <div className="block lg:hidden mt-6">
-          <ProductInfoCard
-            title="Inventory Data Sync"
-            headerTitle="One-Time Purchase, Lifetime Automation"
-            description={
-              <>
-                For just <strong>$180</strong>, revolutionize your{" "}
-                <strong>Shopify inventory management</strong> Our Google App
-                Script syncs your inventory data, including stock levels,
-                locations, and variant updates, directly to Google Sheets every
-                hour.
-              </>
-            }
-            price="150"
-            originalPrice="180"
-            discount="20"
-            linkTo="/checkout"
-            buttonLabel="Order Now"
-            features={[
-              { icon: <FiEdit />, label: "Edit Inventory" },
-              { icon: <FiShare2 />, label: "Shareable Data" },
-              { icon: <FiSettings />, label: "Automated Updates" },
-              { icon: <FiDownload />, label: "Exportable Reports" },
-            ]}
-          />
+            <ProductInfoCard
+              title="Inventory Sync Solution"
+              headerTitle="One-Time Purchase, Lifetime Automation"
+              description={
+                <>
+                  For just <strong>$150</strong>, revolutionize your Shopify
+                  inventory management. Our Google App Script syncs your
+                  inventory data, including stock levels, locations, and variant
+                  updates, directly to Google Sheets every hour.
+                </>
+              }
+              price="150"
+              originalPrice="180"
+              discount="20"
+              linkTo="/checkout"
+              buttonLabel="Order Now"
+              features={[
+                { icon: <FiEdit />, label: "Edit Inventory" },
+                { icon: <FiShare2 />, label: "Shareable Data" },
+                { icon: <FiSettings />, label: "Automated Updates" },
+                { icon: <FiDownload />, label: "Exportable Reports" },
+              ]}
+            />
           </div>
 
           {/* Feature List */}
-          
-
-          {/* Tabs Section */}
           <div className="mt-6 w-full lg:max-w-[850px]">
-          <div className="pb-4">
-          <FeatureList />
-          </div>
+            <div className="pb-4">
+              <FeatureList />
+            </div>
+
+            {/* Tabs Section */}
             <div className="bg-white p-4 rounded-2xl flex flex-wrap justify-start gap-2 border-b-8 border-b-[#DBEAFE]">
               <button
                 className={getTabClass("description")}
@@ -169,16 +162,15 @@ const InventoryDataSyncDetails = () => {
 
         {/* Right Column */}
         <div className="hidden lg:block lg:w-[470px] lg:shrink-0">
-        <ProductInfoCard
-            title="Inventory Data Sync"
+          <ProductInfoCard
+            title="Inventory Sync Solution"
             headerTitle="One-Time Purchase, Lifetime Automation"
             description={
               <>
-                For just{" "}<strong>$180</strong>,revolutionize your{" "}
-                <strong>Shopify inventory management</strong> Our Google App
-                Script syncs your inventory data, including stock levels,
-                locations, and variant updates, directly to Google Sheets every
-                hour.
+                For just <strong>$150</strong>, revolutionize your Shopify
+                inventory management. Our Google App Script syncs your inventory
+                data, including stock levels, locations, and variant updates,
+                directly to Google Sheets every hour.
               </>
             }
             price="150"
@@ -199,4 +191,4 @@ const InventoryDataSyncDetails = () => {
   );
 };
 
-export default InventoryDataSyncDetails;
+export default InventorySyncPage;

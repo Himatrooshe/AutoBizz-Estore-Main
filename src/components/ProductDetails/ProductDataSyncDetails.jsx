@@ -33,16 +33,14 @@ const ProductDataSyncDetails = () => {
   ];
 
   return (
-    <div className="flex justify-center bg-[#DBEAFE] py-12 sm:py-16 lg:py-20 px-4 ">
-      
+    <div className="flex justify-center bg-[#DBEAFE] py-12 sm:py-16 lg:py-20 px-4">
       <div className="max-w-[1400px] flex flex-col lg:flex-row lg:gap-8 gap-6 w-full">
-        
         {/* Left Column */}
         <div className="w-full lg:flex-1">
           {/* Image Carousel */}
           <div className="relative w-full max-w-full lg:max-w-[850px]">
             <img
-              className="w-full max-w-full h-auto lg:h-[510px] object-cover rounded-2xl"
+              className="w-full h-auto"
               src={images[currentImage]}
               alt="Product"
             />
@@ -90,10 +88,13 @@ const ProductDataSyncDetails = () => {
               title="Products Data Sync"
               headerTitle="One-Time Purchase, Lifetime Simplicity"
               description={
-              <>Say goodbye to monthly subscriptions that drain your budget!
-              For just <strong> $120</strong>, our Google app script offers a lifetime solution to keep
-              your Shopify product data synchronized with Google Sheets effortlessly.</>
-            }
+                <>
+                  Say goodbye to monthly subscriptions that drain your budget!
+                  For just <strong>$96</strong>, our Google app script offers a
+                  lifetime solution to keep your Shopify product data
+                  synchronized with Google Sheets effortlessly.
+                </>
+              }
               price="96"
               originalPrice="120"
               discount="20"
@@ -109,13 +110,12 @@ const ProductDataSyncDetails = () => {
           </div>
 
           {/* Feature List */}
-          
-
-          {/* Tabs Section */}
           <div className="mt-6 w-full lg:max-w-[850px]">
-          <div className="pb-4">
-          <FeatureList />
-          </div>
+            <div className="pb-4">
+              <FeatureList />
+            </div>
+
+            {/* Tabs Section */}
             <div className="bg-white p-4 rounded-2xl flex flex-wrap justify-start gap-2 border-b-8 border-b-[#DBEAFE]">
               <button
                 className={getTabClass("description")}
@@ -165,9 +165,14 @@ const ProductDataSyncDetails = () => {
           <ProductInfoCard
             title="Products Data Sync"
             headerTitle="One-Time Purchase, Lifetime Simplicity"
-            description={`Say goodbye to monthly subscriptions that drain your budget!
-            For just $120, our Google app script offers a lifetime solution to keep
-            your Shopify product data synchronized with Google Sheets effortlessly.`}
+            description={
+              <>
+                Say goodbye to monthly subscriptions that drain your budget! For
+                just <strong>$96</strong>, our Google app script offers a
+                lifetime solution to keep your Shopify product data synchronized
+                with Google Sheets effortlessly.
+              </>
+            }
             price="96"
             originalPrice="120"
             discount="20"

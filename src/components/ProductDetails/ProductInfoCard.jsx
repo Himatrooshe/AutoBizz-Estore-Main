@@ -29,7 +29,7 @@ const ProductInfoCard = ({
   };
 
   return (
-    <div className="w-full lg:w-[470px] lg:sticky lg:top-16 px-4 sm:px-8 lg:px-0">
+    <div className="w-full max-w-xl lg:sticky lg:top-16 px-4 sm:px-8 lg:px-0">
       {/* Breadcrumb */}
       <nav className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-4 font-semibold">
         <Link to="/" className="text-gray-500 hover:text-[#1c5a7a] transition">
