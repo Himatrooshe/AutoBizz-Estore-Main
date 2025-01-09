@@ -10,6 +10,7 @@ const ProductGrid = ({ onAddToCart }) => {
           <ProductCard productType="products" onAddToCart={onAddToCart} />
           <ProductCard productType="orders" onAddToCart={onAddToCart} />
           <ProductCard productType="inventory" onAddToCart={onAddToCart} />
+          {/* <ProductCard productType="enventory" onAddToCart={onAddToCart} /> */}
           <EnterpriseCustomSolution onAddToCart={onAddToCart} />
         </div>
       </div>

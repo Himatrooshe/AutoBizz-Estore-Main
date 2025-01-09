@@ -4,6 +4,25 @@ import { useCart } from "../Checkout/CartContext";
 import { Link } from "react-router-dom";
 import random from "../../assets/Product Image.png";
 import CartAddedPop from "./CartAddedPop";
+import ProductReviews from "../Reviews/products-review/ReviewData/ProductReviewsData";
+
+
+const calculateReviewStats = (reviews, productType) => {
+  const filteredReviews = reviews.filter(
+    (review) => review.productType === productType
+  );
+  const totalReviews = filteredReviews.length;
+  const totalRating = filteredReviews.reduce(
+    (sum, review) => sum + review.rating,
+    0
+  );
+  const averageRating = totalReviews === 0 ? 0 : totalRating / totalReviews;
+
+  return {
+    totalReviews,
+    averageRating: averageRating.toFixed(1), 
+  };
+};
 
 const ProductCard = ({ productType }) => {
   const { addToCart } = useCart();
@@ -17,8 +36,7 @@ const ProductCard = ({ productType }) => {
       price: 96,
       originalPrice: 120,
       image: random,
-      description: `Automate your Shopify product data updates to Google Sheets every hour with our Products Data Sync appscript. No more manual exports; get real-time updates, clean formatting, and seamless integration. One-time purchase, lifetime simplicity.`,
-      reviews: 32,
+      description: `Automate your Shopify product data updates to Google Sheets every hour with our Products Data Sync appscript. No more manual exports; get real-time updates, clean formatting, and seamless integration. One-time purchase, lifetime simplicity..`,
       detailsEndpoint: "/product-data-sync-details",
     },
     orders: {
@@ -28,7 +46,6 @@ const ProductCard = ({ productType }) => {
       originalPrice: 160,
       image: random,
       description: `Save time with our Orders Data Sync Google App Script that automatically updates Shopify order data in two different structures to Google Sheets every hour. Keep your orders organized with real-time syncing, formatting, and error-free automation. One-time purchase, lifetime convenience.`,
-      reviews: 25,
       detailsEndpoint: "/order-data-sync-details",
     },
     inventory: {
@@ -38,12 +55,15 @@ const ProductCard = ({ productType }) => {
       originalPrice: 180,
       image: random,
       description: `Streamline your inventory updates with our Inventory Data Sync appscript. This tool syncs your Shopify inventory data directly to Google Sheets every hour, ensuring accurate and up-to-date information. One-time purchase for hassle-free management.`,
-      reviews: 45,
       detailsEndpoint: "/inventory-data-sync-details",
     },
   };
 
   const product = products[productType];
+  const { totalReviews, averageRating } = calculateReviewStats(
+    ProductReviews,
+    productType
+  );
 
   const handleOrderNow = () => {
     addToCart(product);
@@ -56,11 +76,11 @@ const ProductCard = ({ productType }) => {
   };
 
   return (
-    <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-auto rounded-[20px] overflow-hidden shadow-lg bg-[#F5F8F9] p-6 flex flex-col justify-between transition-transform transform hover:scale-105 hover:shadow-lg">
+    <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-auto rounded-3xl overflow-hidden shadow-lg bg-[#F5F8F9] p-6 flex flex-col justify-between transition-transform transform hover:scale-105 hover:shadow-lg">
       <div>
         <Link to={product.detailsEndpoint}>
           <img
-            className="w-full max-h-[300px] object-cover rounded-[20px]"
+            className="w-full max-h-[300px] object-cover rounded-3xl"
             src={product.image}
             alt={product.name}
           />
@@ -105,9 +125,9 @@ const ProductCard = ({ productType }) => {
           )}
 
           {!showFullDescription && (
-            <div className="flex justify-center mt-4">
+            <div className="text-center mt-2">
               <Link
-                to={product.detailsEndpoint}
+                to="/enterprise-custom-solution-details"
                 className="flex justify-center items-center font-semibold hover:underline animate-float"
               >
                 <span>See More</span>
@@ -127,7 +147,6 @@ const ProductCard = ({ productType }) => {
 
       <div className="mt-auto">
         <div className="flex flex-wrap items-center justify-between mt-4">
-          {/* Product Price */}
           <div className="flex items-center space-x-2">
             <span className="text-xl sm:text-2xl font-bold text-[#1c5a7a]">
               ${product.price}
@@ -137,47 +156,39 @@ const ProductCard = ({ productType }) => {
             </span>
           </div>
 
-          {/* Star Ratings and Reviews */}
           <div className="flex items-center space-x-2 mt-2 sm:mt-0">
             <div className="flex space-x-1">
-              {[...Array(5)].map((_, index) => (
-                <svg
-                  key={index}
-                  width="16"
-                  height="16"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="hover:fill-[#1c5a7a] transition duration-300"
-                >
-                  <path
-                    d="M6.97942 1.25171L6.9585 1.30199L5.58662 4.60039C5.54342 4.70426 5.44573 4.77523 5.3336 4.78422L1.7727 5.0697L1.71841 5.07405L1.38687 5.10063L1.08608 5.12475C0.820085 5.14607 0.712228 5.47802 0.914889 5.65162L1.14406 5.84793L1.39666 6.06431L1.43802 6.09974L4.15105 8.42374C4.23648 8.49692 4.2738 8.61176 4.24769 8.72118L3.41882 12.196L3.40618 12.249L3.32901 12.5725L3.25899 12.866C3.19708 13.1256 3.47945 13.3308 3.70718 13.1917L3.9647 13.0344L4.24854 12.861L4.29502 12.8326L7.34365 10.9705C7.43965 10.9119 7.5604 10.9119 7.6564 10.9705L10.705 12.8326L10.7515 12.861L11.0354 13.0344L11.2929 13.1917C11.5206 13.3308 11.803 13.1256 11.7411 12.866L11.671 12.5725L11.5939 12.249L11.5812 12.196L10.7524 8.72118C10.7263 8.61176 10.7636 8.49692 10.849 8.42374L13.562 6.09974L13.6034 6.06431L13.856 5.84793L14.0852 5.65162C14.2878 5.47802 14.18 5.14607 13.914 5.12475L13.6132 5.10063L13.2816 5.07405L13.2274 5.0697L9.66645 4.78422C9.55432 4.77523 9.45663 4.70426 9.41343 4.60039L8.04155 1.30199L8.02064 1.25171L7.89291 0.944609L7.77702 0.665992C7.67454 0.419604 7.32551 0.419604 7.22303 0.665992L7.10715 0.944609L6.97942 1.25171ZM7.50003 2.60397L6.50994 4.98442C6.32273 5.43453 5.89944 5.74207 5.41351 5.78103L2.84361 5.98705L4.8016 7.66428C5.17183 7.98142 5.33351 8.47903 5.2204 8.95321L4.62221 11.461L6.8224 10.1171C7.23842 9.86302 7.76164 9.86302 8.17766 10.1171L10.3778 11.461L9.77965 8.95321C9.66654 8.47903 9.82822 7.98142 10.1984 7.66428L12.1564 5.98705L9.58654 5.78103C9.10061 5.74207 8.67732 5.43453 8.49011 4.98442L7.50003 2.60397Z"
-                    stroke="#1c5a7a"
-                    strokeWidth="1"
-                  />
-                </svg>
-              ))}
+              {"★"
+                .repeat(Math.round(averageRating))
+                .padEnd(5, "☆")
+                .split("")
+                .map((star, index) => (
+                  <span
+                    key={index}
+                    className={`${
+                      star === "★" ? "text-[#1c5a7a]" : "text-gray-400"
+                    } text-[20px]`}
+                  >
+                    {star}
+                  </span>
+                ))}
             </div>
-            <span className="text-[#1c5a7a] text-sm sm:text-base font-semibold">
-              ({product.reviews})
+            <span className="text-[#1c5a7a] font-semibold text-xs">
+              ({totalReviews})
             </span>
           </div>
         </div>
 
         <button
-  onClick={handleOrderNow}
-  className="relative mt-6 w-full bg-gradient-to-b from-[#1c5a7a] to-[#174a63] text-white text-base sm:text-lg font-semibold py-3 sm:py-4 rounded-[12px] flex justify-center items-center space-x-2 shadow-lg shadow-gray-800 transition duration-300 hover:scale-105"
->
-  <span>Add to Cart</span>
-  <FiShoppingCart />
-  <div
-    className="before:absolute before:w-[90%] before:h-[50%] before:bg-white before:top-0 before:left-1/2 before:-translate-x-1/2 before:opacity-20 before:rounded-t-[10px]
-               after:absolute after:w-[90%] after:h-[4px] after:bg-[#ffffff22] after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:rounded-full"
-  ></div>
-</button>
-
+          onClick={handleOrderNow}
+          className="relative mt-6 w-full bg-[#124966] text-white text-base sm:text-lg font-semibold py-3 sm:py-4 rounded-2xl flex justify-center items-center shadow-[0_4px_6px_rgba(18,73,102,0.2)] transition-transform transform duration-300 hover:scale-105 hover:shadow-[0_6px_10px_rgba(18,73,102,0.3)]"
+        >
+          <span className="flex items-center space-x-2">
+            <span>Add to Cart</span>
+            <FiShoppingCart className="text-white w- h-4 text-semibold" />
+          </span>
+        </button>
       </div>
-
       {popup && <CartAddedPop product={product} onClose={closePopup} />}
     </div>
   );

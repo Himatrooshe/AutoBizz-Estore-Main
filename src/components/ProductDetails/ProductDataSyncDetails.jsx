@@ -139,7 +139,7 @@ const ProductDataSyncDetails = () => {
             <div className="bg-white p-6 rounded-xl shadow-md mt-4">
               {activeTab === "description" && <Description />}
               {activeTab === "details" && <Details />}
-              {activeTab === "review" && <ProductReviews />}
+              {activeTab === "review" && <ProductReviews productType="products" />}
             </div>
           </div>
 

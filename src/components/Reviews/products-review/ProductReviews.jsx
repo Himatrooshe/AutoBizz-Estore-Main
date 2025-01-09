@@ -1,15 +1,22 @@
 import React from "react";
 import CountryFlag from "react-country-flag";
-import ProductReviews from "./ProductReviewsData";
+import ProductReviewsData from "./ReviewData/ProductReviewsData";
 
-const Review = () => {
+const ProductReviews = ({ productType }) => {
+  // Filter reviews by product type
+  const filteredReviews = ProductReviewsData.filter(
+    (review) => review.productType === productType
+  );
+
   return (
     <div>
-      <h3 className="text-gray-800 font-bold text-xl mb-4"></h3>
-      {ProductReviews.length === 0 ? (
-        <p className="text-gray-600"></p>
+      <h3 className="text-gray-800 font-bold text-xl mb-4">
+        {filteredReviews.length > 0 ? "Customer Reviews" : "No Reviews Yet"}
+      </h3>
+      {filteredReviews.length === 0 ? (
+        <p className="text-gray-600">Be the first to review this product!</p>
       ) : (
-        ProductReviews.map((review) => (
+        filteredReviews.map((review) => (
           <div key={review.id} className="bg-transparent p-4 rounded-xl mb-4">
             <div className="flex items-center space-x-2 mb-2">
               <img
@@ -57,4 +64,4 @@ const Review = () => {
   );
 };
 
-export default Review;
+export default ProductReviews;
