@@ -1,9 +1,9 @@
 import React from "react";
 import CountryFlag from "react-country-flag";
 import ProductReviewsData from "./ReviewData/ProductReviewsData";
+import { FaSync } from "react-icons/fa";
 
 const ProductReviews = ({ productType }) => {
-  // Filter reviews by product type
   const filteredReviews = ProductReviewsData.filter(
     (review) => review.productType === productType
   );
@@ -20,12 +20,24 @@ const ProductReviews = ({ productType }) => {
           <div key={review.id} className="bg-transparent p-4 rounded-xl mb-4">
             <div className="flex items-center space-x-2 mb-2">
               <img
-                src={`https://ui-avatars.com/api/?name=${review.username}&background=DBEAFE&color=000&rounded=true`}
+                src={
+                  review.image
+                    ? review.image
+                    : `https://ui-avatars.com/api/?name=${review.username}&background=DBEAFE&color=000&rounded=true`
+                }
                 alt={review.username}
                 className="w-10 h-10 rounded-full"
               />
               <div>
-                <p className="text-gray-800 font-bold">{review.username}</p>
+                <p className="text-gray-800 font-bold flex items-center space-x-2">
+                  {review.username}
+                  {review.repeatClient && (
+                    <span className="flex items-center text-xs text-black pl-4">
+                      <FaSync className="text-black w-3 h-3" />
+                      <span className="ml-1">Repeat Client</span>
+                    </span>
+                  )}
+                </p>
                 <div className="flex items-center space-x-2 text-sm text-gray-600">
                   <CountryFlag
                     countryCode={review.country.code}
