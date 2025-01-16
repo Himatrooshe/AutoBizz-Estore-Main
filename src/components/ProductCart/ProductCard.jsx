@@ -6,7 +6,6 @@ import random from "../../assets/Product Image.png";
 import CartAddedPop from "./CartAddedPop";
 import ProductReviews from "../Reviews/products-review/ReviewData/ProductReviewsData";
 
-
 const calculateReviewStats = (reviews, productType) => {
   const filteredReviews = reviews.filter(
     (review) => review.productType === productType
@@ -20,7 +19,7 @@ const calculateReviewStats = (reviews, productType) => {
 
   return {
     totalReviews,
-    averageRating: averageRating.toFixed(1), 
+    averageRating: averageRating.toFixed(1),
   };
 };
 
@@ -167,12 +166,13 @@ const ProductCard = ({ productType }) => {
                     key={index}
                     className={`${
                       star === "★" ? "text-[#1c5a7a]" : "text-gray-400"
-                    } text-[20px]`}
+                    } text-sm sm:text-base md:text-lg`}
                   >
                     {star}
                   </span>
                 ))}
             </div>
+
             <span className="text-[#1c5a7a] font-semibold text-xs">
               ({totalReviews})
             </span>

@@ -3,9 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
-import { FreeMode, Pagination } from "swiper/modules";
+import "swiper/css/autoplay";
+import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 import CountryFlag from "react-country-flag";
-import reviews from "./reviewData"; // Import the updated reviews data
+import reviews from "./reviewData";
 
 const Review = () => {
   return (
@@ -23,30 +24,36 @@ const Review = () => {
           </div>
           <Swiper
             breakpoints={{
-              340: { slidesPerView: 1, spaceBetween: 10 },
-              700: { slidesPerView: 2, spaceBetween: 15 },
-              1024: { slidesPerView: 3, spaceBetween: 20 },
+              340: { slidesPerView: 1, spaceBetween: 20 },
+              700: { slidesPerView: 2, spaceBetween: 25 },
+              1024: { slidesPerView: 3, spaceBetween: 30 },
             }}
-            slidesPerGroup={5} // Group slides to control pagination
+            slidesPerGroup={1}
             freeMode={true}
             pagination={{
               clickable: true,
+              el: ".swiper-pagination-hidden",
             }}
-            modules={[FreeMode, Pagination]}
-            className="relative pb-12" // Adjust padding to accommodate pagination
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            modules={[FreeMode, Pagination, Autoplay]}
+            className="relative"
           >
             {reviews.map((review, index) => (
               <SwiperSlide key={index}>
                 <div
-                  className="flex flex-col overflow-hidden shadow-xl rounded-xl bg-white p-4 lg:py-6 lg:px-5 h-[260px] sm:h-[300px] w-[380px] sm:w-[380px]"
-                  // style={{ height: "300px" }}
+                  className="flex flex-col overflow-hidden shadow-xl rounded-2xl bg-white p-6 lg:py-8 lg:px-7"
+                  style={{ height: "360px" }}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       {[...Array(review.stars || 5)].map((_, i) => (
                         <svg
                           key={i}
-                          className="w-4 h-4 text-[#FDB241]" // Adjust star size
+                          className="w-5 h-5 text-[#FDB241]"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -55,29 +62,27 @@ const Review = () => {
                         </svg>
                       ))}
                     </div>
-                    <span className="text-xs text-gray-500">
-                      {review.timeAgo}
-                    </span>
+                    <span className="text-sm text-gray-500">{review.timeAgo}</span>
                   </div>
-                  <blockquote className="flex-1 mt-4 overflow-hidden text-ellipsis">
-                    <p className="text-xs leading-relaxed text-gray-900 font-pj">
+                  <blockquote className="flex-1 mt-4">
+                    <p className="text-sm leading-relaxed text-gray-900 font-pj">
                       {review.review}
                     </p>
                   </blockquote>
-                  <div className="flex items-center mt-3">
+                  <div className="flex items-center mt-6">
                     {review.image ? (
                       <img
-                        className="flex-shrink-0 object-cover rounded-full w-10 h-10" // Adjust avatar size
+                        className="flex-shrink-0 object-cover rounded-full w-11 h-11"
                         src={review.image}
                         alt={review.name}
                       />
                     ) : (
-                      <div className="flex-shrink-0 flex items-center justify-center rounded-full w-10 h-10 bg-gray-200 text-gray-700 font-bold">
+                      <div className="flex-shrink-0 flex items-center justify-center rounded-full w-11 h-11 bg-gray-200 text-gray-700 font-bold">
                         {review.name.charAt(0).toUpperCase()}
                       </div>
                     )}
-                    <div className="ml-3">
-                      <p className="text-sm font-bold text-gray-900 font-pj">
+                    <div className="ml-4">
+                      <p className="text-base font-bold text-gray-900 font-pj">
                         {review.name}
                       </p>
                       <div className="flex items-center space-x-2">
@@ -85,11 +90,11 @@ const Review = () => {
                           countryCode={review.country.code}
                           svg
                           style={{
-                            width: "1.2em",
-                            height: "1.2em",
+                            width: "1.5em",
+                            height: "1.5em",
                           }}
                         />
-                        <span className="text-xs font-pj text-gray-600">
+                        <span className="text-sm font-pj text-gray-600">
                           {review.country.name}
                         </span>
                       </div>
@@ -99,8 +104,7 @@ const Review = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="swiper-pagination mt-6 flex justify-center"></div>{" "}
-          {/* Tailwind for pagination */}
+          <div className="swiper-pagination-hidden hidden"></div>
         </div>
       </div>
     </section>

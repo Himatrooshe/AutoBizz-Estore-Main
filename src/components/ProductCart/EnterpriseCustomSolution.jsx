@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import random from "../../assets/Product Image.png";
 import ProductReviews from "../Reviews/products-review/ReviewData/ProductReviewsData";
 
-// Function to calculate stats
 const calculateReviewStats = (reviews, productType) => {
   const filteredReviews = reviews.filter(
     (review) => review.productType === productType
@@ -17,14 +16,14 @@ const calculateReviewStats = (reviews, productType) => {
 
   return {
     totalReviews,
-    averageRating: averageRating.toFixed(1), // Keep one decimal for display
+    averageRating: averageRating.toFixed(1), 
   };
 };
 
 const ProductCard = () => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
-  const productType = "enterprise"; // Define the product type for enterprise
+  const productType = "enterprise"; 
   const product = {
     name: "Enterprise Custom Solution",
     description: `
@@ -45,7 +44,6 @@ const ProductCard = () => {
 
   return (
     <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-auto rounded-3xl overflow-hidden shadow-lg bg-[#F5F8F9] p-6 flex flex-col justify-between transition-transform transform hover:scale-105 hover:shadow-lg">
-      {/* Product Image */}
       <div>
         <Link to="/enterprise-custom-solution-details">
           <img
@@ -66,7 +64,6 @@ const ProductCard = () => {
             {product.name}
           </h2>
         </Link>
-
         <div className="mt-4 text-justify">
           {!showFullDescription ? (
             <div className="relative">
@@ -91,8 +88,6 @@ const ProductCard = () => {
               {product.description}
             </p>
           )}
-
-          {/* "See More" Button */}
           {!showFullDescription && (
             <div className="text-center mt-2">
               <Link
@@ -113,21 +108,20 @@ const ProductCard = () => {
           )}
         </div>
       </div>
-
-      {/* Pricing and CTA */}
       <div className="mt-4 md:mt-auto">
-        {/* Pricing */}
         <div className="flex flex-wrap items-center justify-between mt-4">
           <div className="flex items-center space-x-2">
             <span className="text-xl sm:text-2xl font-bold text-[#1c5a7a]">
               {product.price}
             </span>
+            <span className="text-base sm:text-lg font-normal text-gray-500 line-through">
+              $$$
+            </span>
           </div>
-
-          {/* Star Ratings and Reviews */}
           <div className="flex items-center space-x-2 mt-2 sm:mt-0">
             <div className="flex space-x-1">
-              {"★".repeat(Math.round(averageRating))
+              {"★"
+                .repeat(Math.round(averageRating))
                 .padEnd(5, "☆")
                 .split("")
                 .map((star, index) => (
@@ -135,7 +129,7 @@ const ProductCard = () => {
                     key={index}
                     className={`${
                       star === "★" ? "text-[#1c5a7a]" : "text-gray-400"
-                    }`}
+                    } text-sm sm:text-base md:text-lg`}
                   >
                     {star}
                   </span>
@@ -146,8 +140,6 @@ const ProductCard = () => {
             </span>
           </div>
         </div>
-
-        {/* CTA Button */}
         <Link to="">
           <button className="relative mt-6 w-full bg-[#124966] text-white text-base sm:text-lg font-semibold py-3 sm:py-4 rounded-2xl flex justify-center items-center shadow-[0_4px_6px_rgba(18,73,102,0.2)] transition-transform transform duration-300 hover:scale-105 hover:shadow-[0_6px_10px_rgba(18,73,102,0.3)]">
             <span className="bg-clip-text text-transparent bg-gradient-to-t from-white to-white filter">
