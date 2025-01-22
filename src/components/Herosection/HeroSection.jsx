@@ -9,7 +9,7 @@ const HeroSection = () => {
     <section className="bg-[#DBEAFE] py-0 sm:py-12 px-[60px]">
       <div className="container mx-auto flex flex-col-reverse xl:flex-row items-center">
         <div className="w-full text-center 4xl:text-left mt-6 md:mt-0">
-          <h1 className="text-[48px] font-semibold text-[#2D7498] mb-4 4xl:text-start 2xl:text-start xl:text-start lg:text-center">
+          <h1 className="text-[42px] font-semibold text-[#2D7498] mb-4 4xl:text-start 2xl:text-start xl:text-start lg:text-center">
             Your Tech Simplification Partner
           </h1>
           <p className="text-[28px] text-[#6C9DB7] mb-6 4xl:text-start 2xl:text-start xl:text-start lg:text-center">

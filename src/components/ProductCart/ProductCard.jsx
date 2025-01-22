@@ -155,7 +155,7 @@ const ProductCard = ({ productType }) => {
             </span>
           </div>
 
-          <div className="flex items-center space-x-2 mt-2 sm:mt-0">
+          <div className="flex items-center space-x-2 sm:mt-0">
             <div className="flex space-x-1">
               {"★"
                 .repeat(Math.round(averageRating))

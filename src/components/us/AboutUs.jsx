@@ -41,7 +41,7 @@ const AboutUs = () => {
       </motion.section>
 
       <motion.section
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="bg-[#072034] max-w-7xl mx-auto p-10 md:p-14 rounded-lg mb-8 shadow-lg"
@@ -78,8 +78,8 @@ const AboutUs = () => {
       <div className="bg-[#011223] text-[#DEEEFC] pb-12 px-6 md:px-[55px] font-['Plus_Jakarta_Sans']">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             className="bg-[#072034] p-10 md:p-12 rounded-lg shadow-lg text-center"
           >
@@ -106,8 +106,8 @@ const AboutUs = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             className="bg-[#072034] p-10 md:p-12 rounded-lg shadow-lg text-center"
           >

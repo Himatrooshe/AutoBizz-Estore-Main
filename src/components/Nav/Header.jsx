@@ -6,6 +6,7 @@ import specialLogo from "../../assets/Logo for Dark BG.svg";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../Checkout/CartContext";
 import thunder from "../../assets/Thunder 1.svg";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const { cart } = useCart();
@@ -21,11 +22,15 @@ const Header = () => {
   const isSpecialPage = specialRoutes.includes(location.pathname);
 
   useEffect(() => {
+    setMenuOpen(false); 
+  }, [location.pathname]);
+
+  useEffect(() => {
     setShowCounter(cart.length > 0);
   }, [cart]);
 
   return (
-    <header className="fixed w-full z-10 lg:px-[55px] px-[40px] bg-gradient-to-b from-[#EFF7FF80] backdrop-blur-[10px]">
+    <header className="fixed w-full z-10 lg:px-[55px] px-[40px] bg-gradient-to- backdrop-blur-[10px]">
       <div className="container mx-auto py-2 flex justify-between items-center">
         <div className="text-2xl font-bold flex items-center">
           <a href="/">
@@ -37,7 +42,7 @@ const Header = () => {
           </a>
         </div>
 
-        <nav className="hidden lg-md:flex flex-grow justify-center space-x-6 lg:space-x-8 font-Jakarta">
+        <nav className="hidden lg-md:flex flex-grow justify-center space-x-6 lg:space-x-8 font-Jakarta font-medium">
           {["Home", "Our Services", "Portfolio", "Case Study", "About Us"].map(
             (item, index) => (
               <Link
@@ -58,19 +63,24 @@ const Header = () => {
                     ? "_blank"
                     : "_self"
                 }
-                className={`relative group ${
-                  isSpecialPage ? "text-white" : "text-[#2D7498]"
-                } hover:text-[#29ABE2]`}
+                className="relative group overflow-hidden"
               >
-                {item.split("").map((char, charIndex) => (
+                <motion.div
+                  whileHover={{ y: -20 }}
+                  transition={{ ease: "backInOut", duration: 0.5 }}
+                  className="h-[20px]"
+                >
                   <span
-                    key={`${char}-${charIndex}`}
-                    className="inline-block translate-y-0 group-hover:animate-text-scroll [animation-fill-mode:forwards]"
-                    style={{ animationDelay: `${charIndex * 0.05}s` }}
+                    className={`flex h-[20px] items-center ${
+                      isSpecialPage ? "text-white" : "text-[#2D7498]"
+                    }`}
                   >
-                    {char === " " ? "\u00A0" : char}
+                    {item}
                   </span>
-                ))}
+                  <span className="flex h-[20px] items-center text-[#1c5a7a]">
+                    {item}
+                  </span>
+                </motion.div>
               </Link>
             )
           )}
