@@ -127,7 +127,7 @@ const ProductCard = ({ productType }) => {
             <div className="text-center mt-2">
               <Link
                 to="/enterprise-custom-solution-details"
-                className="flex justify-center items-center font-semibold hover:underline animate-float"
+                className="flex justify-center items-center font-semibold hover:underline"
               >
                 <span>See More</span>
                 <svg
