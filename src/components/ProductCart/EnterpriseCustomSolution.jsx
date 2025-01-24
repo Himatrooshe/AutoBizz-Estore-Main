@@ -135,7 +135,8 @@ const ProductCard = () => {
                   </span>
                 ))}
             </div>
-            <span className="text-[#1c5a7a] text-sm sm:text-base font-semibold">
+
+            <span className="text-[#1c5a7a] font-semibold text-xs">
               ({totalReviews})
             </span>
           </div>

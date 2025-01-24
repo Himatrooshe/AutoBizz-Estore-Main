@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CountryFlag from "react-country-flag";
 import ProductReviewsData from "./ReviewData/ProductReviewsData";
 import { FaSync } from "react-icons/fa";
@@ -8,6 +8,12 @@ const ProductReviews = ({ productType }) => {
     (review) => review.productType === productType
   );
 
+  const [visibleReviews, setVisibleReviews] = useState(10);
+
+  const handleShowMoreReviews = () => {
+    setVisibleReviews((prevVisibleReviews) => prevVisibleReviews + 10);
+  };
+
   return (
     <div>
       <h3 className="text-gray-800 font-bold text-xl mb-4">
@@ -16,7 +22,7 @@ const ProductReviews = ({ productType }) => {
       {filteredReviews.length === 0 ? (
         <p className="text-gray-600">Be the first to review this product!</p>
       ) : (
-        filteredReviews.map((review) => (
+        filteredReviews.slice(0, visibleReviews).map((review) => (
           <div key={review.id} className="bg-transparent p-4 rounded-xl mb-4">
             <div className="flex items-center space-x-2 mb-2">
               <img
@@ -71,6 +77,14 @@ const ProductReviews = ({ productType }) => {
             <p className="text-gray-700">{review.review}</p>
           </div>
         ))
+      )}
+      {visibleReviews < filteredReviews.length && (
+        <button
+          onClick={handleShowMoreReviews}
+          className="mt-4  text-[#1c5a7a] py-2 px-4 font-semibold"
+        >
+          See More...
+        </button>
       )}
     </div>
   );

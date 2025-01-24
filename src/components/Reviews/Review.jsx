@@ -100,9 +100,9 @@ const Review = () => {
           {/* Right fade */}
           <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#DBEAFE] via-[#DBEAFE00] pointer-events-none"></div>
           {/* Top fade */}
-          <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#DBEAFE] via-[#DBEAFE00] pointer-events-none"></div>
+          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#DBEAFE] via-[#DBEAFE00] pointer-events-none"></div>
           {/* Bottom fade */}
-          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#DBEAFE] via-[#DBEAFE00] pointer-events-none"></div>
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#DBEAFE] via-[#DBEAFE00] pointer-events-none"></div>
 
           <TranslateWrapper>
             {/* Repeat the reviews twice for smooth scrolling */}
